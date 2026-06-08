@@ -100,6 +100,8 @@ const certToneClass = {
   },
 };
 
+
+
 const ProjectCard = ({ project, direction }) => {
   const accent = accentClass[project.accent];
 
@@ -178,9 +180,19 @@ const ProjectCard = ({ project, direction }) => {
   );
 };
 
+
 const Projects = () => {
   const [idx, setIdx] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [spotlight, setSpotlight] = useState({ x: 50, y: 45 });
+
+  const handlePointerMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setSpotlight({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+  };
 
   const prev = () => {
     setDirection(-1);
@@ -195,10 +207,11 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 md:py-24 px-6"
+      onPointerMove={handlePointerMove}
+      className="relative min-h-screen overflow-hidden px-4 py-14 sm:px-6 md:flex md:items-center md:py-14"
       style={{
-        background:
-          "linear-gradient(135deg, rgba(124,58,237,.08), rgba(6,182,212,.07), rgba(15,23,42,.2))",
+        background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(236,72,153,.16), transparent 30%),
+          linear-gradient(135deg, rgba(34,211,238,.1), rgba(124,58,237,.11) 48%, rgba(16,185,129,.09))`,
       }}
     >
       <div className="max-w-6xl mx-auto">

@@ -3,6 +3,8 @@ import { FiMail, FiMapPin, FiLinkedin, FiGithub } from "react-icons/fi";
 import { SiLeetcode, SiHackerrank } from "react-icons/si";
 import { FaJava, FaCss3Alt } from "react-icons/fa";
 
+import ProfilePic from "../assets/profile.png"; // place image in src/assets folder
+
 import {
   SiSpringboot,
   SiReact,
@@ -135,20 +137,37 @@ const About = () => (
           className="flex flex-col items-center gap-9"
         >
           <div className="relative">
-            <div
-              className="w-72 h-72 rounded-3xl flex items-center justify-center text-8xl shadow-2xl shadow-cyan-500/20"
-              style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)" }}
-            >
-              <span
-  aria-hidden="true"
-  className="font-black text-white tracking-wider"
-  style={{
-    textShadow: "0 0 20px rgba(34,211,238,0.8)",
-  }}
->
-  MSC
-</span>
-            </div>
+            <div className="relative">
+  <div
+    className="
+      w-80 h-96
+      md:w-[340px] md:h-[420px]
+      rounded-3xl
+      overflow-hidden
+      border border-cyan-400/30
+      shadow-2xl shadow-cyan-500/20
+      bg-slate-900
+    "
+  >
+    <img
+      src={ProfilePic}
+      alt="Mohit Chouhan"
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* Glow Rings */}
+  <div className="absolute inset-[-10px] rounded-[36px] border border-violet-500/20" />
+  <div className="absolute inset-[-20px] rounded-[44px] border border-violet-500/10" />
+
+  {/* Location Badge */}
+  <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-slate-950/95 border border-cyan-400/30 rounded-full px-5 py-2 flex items-center gap-2 whitespace-nowrap shadow-lg shadow-cyan-950/40">
+    <FiMapPin size={13} className="text-cyan-300" />
+    <span className="text-sm font-mono text-cyan-100">
+      Pune, Maharashtra
+    </span>
+  </div>
+</div>
             {/* Glowing ring */}
             <div className="absolute inset-[-10px] rounded-[36px] border border-violet-500/20" />
             <div className="absolute inset-[-20px] rounded-[44px] border border-violet-500/10" />

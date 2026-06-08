@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiCalendar, FiMapPin, FiCode, FiShield, FiDatabase } from "react-icons/fi";
 
@@ -26,16 +27,32 @@ const InfoPill = ({ icon, children }) => (
   </span>
 );
 
-const Experience = () => (
-  <section
-    id="experience"
-    className="py-20 md:py-24 px-6"
-    style={{
-      background:
-        "linear-gradient(135deg, rgba(6,182,212,.09), rgba(124,58,237,.08), rgba(14,165,233,.05))",
-    }}
-  >
-    <div className="max-w-6xl mx-auto">
+const Experience = () => {
+  const [spotlight, setSpotlight] = useState({ x: 50, y: 45 });
+
+  const handlePointerMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setSpotlight({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+  };
+
+  return (
+    <section
+      id="experience"
+      onPointerMove={handlePointerMove}
+      className="relative min-h-screen overflow-hidden px-4 py-14 sm:px-6 md:flex md:items-center md:py-14"
+      style={{
+        background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(236,72,153,.16), transparent 30%),
+          linear-gradient(135deg, rgba(34,211,238,.1), rgba(124,58,237,.11) 48%, rgba(16,185,129,.09))`,
+      }}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.035)_1px,transparent_1px)] bg-[size:54px_54px] opacity-25" />
+      <div className="absolute left-0 top-16 h-56 w-56 rounded-full bg-cyan-400/18 blur-3xl" />
+      <div className="absolute bottom-10 right-0 h-64 w-64 rounded-full bg-pink-400/18 blur-3xl" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-px bg-cyan-300" />
         <span className="text-cyan-300 text-sm font-mono uppercase tracking-widest">Career</span>
@@ -138,7 +155,7 @@ const Experience = () => (
         </motion.article>
       </div>
     </div>
-  </section>
-);
-
+    </section>
+  );
+};
 export default Experience;

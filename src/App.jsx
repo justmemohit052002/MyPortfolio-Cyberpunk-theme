@@ -9,7 +9,7 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ParticleCanvas from "./components/ParticleCanvas";
+import StarfieldCanvas from "./components/StarfieldCanvas";
 import Preloader from "./components/Preloader";
 
 const App = () => {
@@ -42,15 +42,17 @@ const App = () => {
 
       {!loading && (
         <>
-          <ParticleCanvas />
-
+          {/* Deep space base gradient */}
           <div
-            className="fixed inset-0 -z-10 h-full w-full"
+            className="fixed inset-0 -z-20 h-full w-full"
             style={{
               background:
-                "radial-gradient(125% 125% at 50% 10%, #0a0a0f 40%, #1e0a3c 80%, #0a1a2e 100%)",
+                "radial-gradient(125% 125% at 50% 10%, #03010a 35%, #0d0730 65%, #050d1f 100%)",
             }}
           />
+
+          {/* Three.js starfield + nebula */}
+          <StarfieldCanvas />
 
           <Navbar />
 
