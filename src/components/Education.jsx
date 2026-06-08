@@ -43,7 +43,7 @@ const Education = () => {
       <div className="relative z-10 max-w-6xl mx-auto">
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-px bg-amber-300" />
-        <span className="text-amber-300 text-sm font-mono uppercase tracking-widest">Academic Background</span>
+        <span className="text-amber-300 text-sm font-mono uppercase tracking-widest">Academics</span>
       </div>
 
       <motion.div

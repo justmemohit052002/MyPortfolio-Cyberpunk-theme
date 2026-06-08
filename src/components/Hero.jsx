@@ -11,10 +11,10 @@ import {
 } from "react-icons/fi";
 
 const STATS = [
-  { value: "2+", label: "Projects", tone: "cyan" },
+  { value: "10+", label: "Projects", tone: "cyan" },
   { value: "1+", label: "Years Coding", tone: "pink" },
   { value: "100+", label: "DSA Problems", tone: "emerald" },
-  { value: "10+", label: "Technologies", tone: "violet" },
+  { value: "15+", label: "Technologies", tone: "violet" },
 ];
 
 const STACK = [

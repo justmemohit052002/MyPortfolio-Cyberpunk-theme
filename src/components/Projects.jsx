@@ -227,9 +227,12 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-black tracking-tight mb-3 text-white"
+              className="text-4xl font-black leading-tight tracking-tight text-white md:text-5xl lg:text-5xl xl:text-6xl mb-3"
             >
               Projects
+              <span className="block bg-gradient-to-r from-cyan-200 via-pink-200 to-emerald-200 bg-clip-text text-transparent">
+                built for real users.
+              </span>
             </motion.h2>
             <p className="text-neutral-200 text-lg leading-8 max-w-3xl">
               Full-stack applications built with secure APIs, production-minded workflows, and clean user interfaces.
@@ -288,9 +291,12 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-white"
+              className="text-4xl font-black leading-tight tracking-tight text-white md:text-5xl"
             >
-              Certifications & Activities
+              Certifications &
+              <span className="block bg-gradient-to-r from-cyan-200 via-pink-200 to-emerald-200 bg-clip-text text-transparent">
+                Activities
+              </span>
             </motion.h3>
             <p className="text-neutral-200 text-base md:text-lg leading-8">
               Training, certifications, conferences, and community involvement that support the technical work above.

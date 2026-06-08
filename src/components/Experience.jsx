@@ -65,8 +65,11 @@ const Experience = () => {
         viewport={{ once: true }}
         className="mb-10"
       >
-        <h2 className="text-5xl md:text-6xl font-black tracking-tight leading-tight text-white">
+        <h2 className="text-4xl font-black leading-tight tracking-tight text-white md:text-5xl lg:text-5xl xl:text-6xl">
           Experience
+          <span className="block bg-gradient-to-r from-cyan-200 via-pink-200 to-emerald-200 bg-clip-text text-transparent">
+            that delivers results.
+          </span>
         </h2>
         <p className="mt-4 max-w-3xl text-neutral-200 text-lg leading-8">
           Practical full stack work across secure APIs, database-driven systems, and React interfaces.
