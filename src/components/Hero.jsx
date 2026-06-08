@@ -24,6 +24,8 @@ const STACK = [
   { icon: <FiLayers />, label: "JWT + Hibernate", value: "Backend Core" },
 ];
 
+const RESUME_LINK = 'https://drive.google.com/file/d/1P2tSbFILiVVtTfrdMded4zQE8X7blAWH/view?usp=sharing';
+
 const statTone = {
   cyan: "border-cyan-300/30 bg-cyan-300/10 text-cyan-200 shadow-cyan-500/10",
   pink: "border-pink-300/30 bg-pink-300/10 text-pink-200 shadow-pink-500/10",
@@ -103,12 +105,14 @@ const Hero = () => {
             transition={{ duration: 0.65, delay: 0.34 }}
             className="mt-5 flex flex-wrap gap-3"
           >
-            <button
-              onClick={() => scrollTo("#projects")}
-              className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 via-pink-300 to-emerald-300 px-5 py-3 text-sm font-black text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(34,211,238,.24)]"
+            <a
+              href={RESUME_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 via-pink-300 to-emerald-300 px-5 py-3 text-sm font-black text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(34,211,238,.24)]"
             >
-              View Projects <FiArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-            </button>
+              View Resume <FiArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+            </a>
             <button
               onClick={() => scrollTo("#contact")}
               className="group flex items-center gap-2 rounded-xl border border-pink-300/35 bg-pink-300/10 px-5 py-3 text-sm font-bold text-pink-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-200/70 hover:bg-pink-300/15"
