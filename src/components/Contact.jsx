@@ -76,19 +76,51 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In production, wire to your backend / EmailJS / Formspree.
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-    setForm({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xgobkgqz",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            subject: form.subject,
+            message: form.message,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setSent(true);
+
+        setForm({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   const inputCls = (field) =>
-    `w-full rounded-xl border bg-black/35 px-4 py-2.5 text-sm text-white outline-none transition-all duration-200 placeholder:text-neutral-600 ${
-      focus === field
-        ? "border-cyan-300/70 shadow-[0_0_0_4px_rgba(34,211,238,.12),0_0_32px_rgba(236,72,153,.12)]"
-        : "border-white/10 hover:border-white/25"
+    `w-full rounded-xl border bg-black/35 px-4 py-2.5 text-sm text-white outline-none transition-all duration-200 placeholder:text-neutral-600 ${focus === field
+      ? "border-cyan-300/70 shadow-[0_0_0_4px_rgba(34,211,238,.12),0_0_32px_rgba(236,72,153,.12)]"
+      : "border-white/10 hover:border-white/25"
     }`;
 
   return (
@@ -298,8 +330,13 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="group mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 via-pink-300 to-emerald-300 px-7 py-3 text-sm font-black tracking-wide text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_38px_rgba(34,211,238,.25)] sm:w-auto"
+                  disabled={
+                    !form.name ||
+                    !form.email ||
+                    !form.message
+                  } className="group mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 via-pink-300 to-emerald-300 px-7 py-3 text-sm font-black tracking-wide text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_38px_rgba(34,211,238,.25)] sm:w-auto"
                 >
+
                   Send Message <FiSend size={16} className="transition-transform group-hover:translate-x-0.5" />
                 </button>
               </form>
