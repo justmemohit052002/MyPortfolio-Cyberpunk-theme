@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { FiCalendar, FiMapPin, FiBookOpen, FiAward } from "react-icons/fi";
 
 const EDUCATION = {
-  period: "2019 - 2023",
-  degree: "B.E. / B.Tech",
+  period: "2020 - 2024",
+  degree: "B.Tech",
   college: "Chameli Devi Group of Institutions",
   location: "Indore, Madhya Pradesh",
   branch: "Computer Science & Engineering",
